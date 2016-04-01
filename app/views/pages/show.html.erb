@@ -1,0 +1,8 @@
+<h1>こんにちは、<%= current_user.name %>さん</h1>
+<p>ユーザー用ページです。</p>
+
+
+<p><%= current_user.name if defined? current_user.name %></p>
+<p><%= current_user.provider if defined? current_user.provider %></p>
+<p><%= current_user.uid if defined? current_user.uid %></p>
+<p><%= current_user.email if defined? current_user.email %></p>

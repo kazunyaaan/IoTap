@@ -50,3 +50,10 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+
+# bootstrap
+gem 'twitter-bootstrap-rails', '3.2.0'
+gem 'less-rails'
+gem 'therubyracer'
+gem 'execjs'
+gem 'simple_form'

@@ -1,10 +1,5 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-
-<p><%= current_user.name if defined? current_user.name %></p>
-<p><%= current_user.provider if defined? current_user.provider %></p>
-<p><%= current_user.uid if defined? current_user.uid %></p>
-<p><%= current_user.email if defined? current_user.email %></p>
+<h1>ようこそ</h1>
+<p>トップページです。</p>
 
 <%= link_to 'Signin with Google', user_omniauth_authorize_path(:google_oauth2) %>
 
