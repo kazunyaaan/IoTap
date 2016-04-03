@@ -4,12 +4,29 @@ class TapsController < ApplicationController
   # GET /taps
   # GET /taps.json
   def index
-    @taps = Tap.all
+    @user = current_user
+    @user ||= User.new
+    @taps = Tap.where(user_id: @user.id)
   end
 
   # GET /taps/1
   # GET /taps/1.json
   def show
+  end
+
+  # vGET /taps/1/switch
+  def switch
+    @tap = Tap.find(params[:id])
+
+    logger.debug "TAP_STATE: #{@tap.state}"
+
+    if @tap.on? then
+      @tap.off!
+    else
+      @tap.on!
+    end
+
+    redirect_to taps_path
   end
 
   # GET /taps/new
@@ -24,8 +41,10 @@ class TapsController < ApplicationController
   # POST /taps
   # POST /taps.json
   def create
-    @tap = Tap.new(tap_params)
-
+    #@tap = Tap.new(tap_params)
+    @user = current_user
+    @tap = @user.taps.build(tap_params)
+    
     respond_to do |format|
       if @tap.save
         format.html { redirect_to @tap, notice: 'Tap was successfully created.' }

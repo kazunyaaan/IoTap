@@ -1,10 +1,8 @@
 <%= simple_form_for @tap, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :tap %>
+  <%= f.input :tap, :placeholder => 'リビング用テーブルタップ' %>
   <%= error_span(@tap[:tap]) %>
-  <%= f.input :macaddr %>
+  <%= f.input :macaddr, :placeholder => '01:23:45:AB:CD:EF' %>
   <%= error_span(@tap[:macaddr]) %>
-  <%= f.input :state %>
-  <%= error_span(@tap[:state]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

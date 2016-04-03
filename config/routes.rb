@@ -2,12 +2,16 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/show'
 
+  get 'taps/:id/switch', to: 'taps#switch'
   resources :taps
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
-  }
+    omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
 
+  }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

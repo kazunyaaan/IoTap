@@ -2,6 +2,40 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @taps.each_with_index do |tap, i| %>
+        <% if tap.on? then%>
+          <% state = 'on' %>
+        <% else %>
+          <% state = 'off' %>
+        <% end %>
+
+        <td><%= link_to state.upcase, "#{tap_path(tap)}/switch", :class => "tap switch size-64 r-square shadow-left #{state}" %></i></td>
+
+        <% if (i+1)%5 == 0 then %>
+          </tr><tr>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
+<%
+=begin
+%> 
 <table class="table table-striped">
   <thead>
     <tr>
@@ -9,17 +43,19 @@
       <th><%= model_class.human_attribute_name(:tap) %></th>
       <th><%= model_class.human_attribute_name(:macaddr) %></th>
       <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @taps.each do |tap| %>
-      <tr>
+      <tr>  
         <td><%= link_to tap.id, tap_path(tap) %></td>
         <td><%= tap.tap %></td>
         <td><%= tap.macaddr %></td>
         <td><%= tap.state %></td>
+        <td><%= tap.user_id %></td>
         <td><%=l tap.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -29,11 +65,16 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
+      </td>
+     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%
+=end
+%> 
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_tap_path,

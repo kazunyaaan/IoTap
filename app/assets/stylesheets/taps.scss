@@ -1,3 +1,88 @@
 // Place all the styles related to the taps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.tap {
+  color: #fff;
+  text-decoration: none;
+
+  &:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+
+.tap:active,
+.tap.active {
+  background-image: none;
+}
+
+.switch {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+  -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+.switch:hover, .switch:focus, .switch:active { outline: 0; opacity: 0.8; color: #fff; }
+
+.size-48 {
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  padding-top: 13px;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.size-64 {
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+  padding-top: 16px;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.shadow-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.shadow-left:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.r-square {
+  -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
+.off { background: #999; }
+.on { background: #00bcf2; }
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.fa-off:before { content: "OFF"; }
+.fa-on:before { content: "ON"; }
+
